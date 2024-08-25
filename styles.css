@@ -17,6 +17,8 @@ body {
 }
 
 .profile-pic-container {
+    position: relative;
+    z-index: 2;
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -31,17 +33,19 @@ body {
 }
 
 .status-box {
+    position: absolute;
+    left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100px;
     background-color: #cccccc;
     border-radius: 50px;
-    margin-left: -50px; /* Overlap with profile pic */
     padding-left: 60px;
     padding-right: 20px;
     opacity: 0;
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    z-index: 1;
 }
 
 .status-box span {
@@ -56,9 +60,9 @@ body {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background-color: green;
+    background-color: #00ff00; /* Vert clair */
     margin-right: 10px;
-    box-shadow: 0 0 10px green;
+    box-shadow: 0 0 10px #00ff00; /* Lueur verte claire */
     animation: pulse 1.5s infinite;
 }
 
