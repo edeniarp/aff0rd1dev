@@ -12,8 +12,8 @@ body {
     position: relative;
     display: flex;
     align-items: center;
-    margin-top: 20px;
     transition: transform 0.7s ease-out;
+    margin-left: -50px; /* Position initiale à gauche */
 }
 
 .profile-pic-container {
@@ -34,7 +34,7 @@ body {
 
 .status-box {
     position: absolute;
-    left: -20px; /* Décale le cadre gris plus vers la gauche */
+    left: 20px; /* Décale le cadre gris vers la droite */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,4 +82,10 @@ body {
 
 .move-left {
     transform: translateX(-50px);
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    transform: none !important; /* Supprimer toute transformation */
 }
