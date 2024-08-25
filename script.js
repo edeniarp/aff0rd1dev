@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const statusContainer = document.querySelector('.status-container');
+    const profilePic = document.getElementById('profilePic');
     const statusBox = document.getElementById('statusBox');
     const statusDot = document.getElementById('statusDot');
     const statusLabel = document.getElementById('statusLabel');
@@ -9,24 +9,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Définir la couleur et le texte du statut
     if (isOnline) {
-        statusDot.style.backgroundColor = "#00ff00";
-        statusDot.style.boxShadow = "0 0 10px #00ff00";
+        statusDot.style.backgroundColor = "green";
         statusLabel.textContent = "En ligne";
     } else {
         statusDot.style.backgroundColor = "red";
-        statusDot.style.boxShadow = "0 0 10px red";
         statusLabel.textContent = "Hors ligne";
     }
 
     // Animer le déplacement et l'affichage du statut
     setTimeout(function() {
-        statusContainer.classList.add('move-left');
+        profilePic.classList.add('move-left');
         setTimeout(function() {
             statusBox.classList.add('show');
-            setTimeout(function() {
-                // Après l'animation, centrer l'ensemble
-                statusContainer.classList.add('center');
-            }, 700); // Centrer après la transition
         }, 700); // Délai pour la sortie du statut après le déplacement de l'image
     }, 700); // Délai initial pour commencer l'animation
 });
