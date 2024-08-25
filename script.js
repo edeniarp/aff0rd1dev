@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Définir la couleur et le texte du statut
     if (isOnline) {
-        statusDot.style.backgroundColor = "green";
-        statusDot.style.boxShadow = "0 0 10px green";
+        statusDot.style.backgroundColor = "#00ff00";
+        statusDot.style.boxShadow = "0 0 10px #00ff00";
         statusLabel.textContent = "En ligne";
     } else {
         statusDot.style.backgroundColor = "red";
