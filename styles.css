@@ -34,7 +34,7 @@ body {
 
 .status-box {
     position: absolute;
-    left: -40px; /* Décale le cadre gris plus vers la gauche */
+    left: -30px; /* Décale le cadre gris plus vers la gauche */
     display: flex;
     align-items: center;
     justify-content: center;
