@@ -76,3 +76,38 @@ body {
     opacity: 1;
     transform: translateX(20px);
 }
+
+/* Styles de base déjà fournis ci-dessus */
+
+.terminal-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px; /* Ajustez la hauteur du terminal */
+    background-color: #000;
+    color: #00ff00; /* Texte vert typique des terminaux */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Ombre verte */
+    overflow: hidden;
+    padding: 10px;
+}
+
+.terminal {
+    font-family: monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.typing {
+    display: inline;
+    border-right: 2px solid #00ff00; /* Curseur de type terminal */
+    animation: blink 0.7s step-start infinite;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
