@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const statusBox = document.querySelector('.status-box');
     const statusDot = document.getElementById('statusDot');
     const statusLabel = document.getElementById('statusLabel');
+    const terminal = document.getElementById('terminal');
 
     // Simuler la récupération du statut Discord (en ligne/hors ligne)
     const isOnline = true; // Remplacez ceci par une vraie vérification du statut
@@ -29,4 +30,48 @@ document.addEventListener("DOMContentLoaded", function() {
             }, 500); // Délai pour l'animation du centre
         }, 700); // Délai pour la sortie du statut après le déplacement de l'image
     }, 700); // Délai initial pour commencer l'animation
+
+    // Animation du terminal
+    const commands = [
+        "C:\\> python r!ft.py",
+        "C:\\> Tapez Enter to enter >"
+    ];
+
+    let commandIndex = 0;
+    let charIndex = 0;
+
+    function typeCommand() {
+        if (commandIndex < commands.length) {
+            if (charIndex < commands[commandIndex].length) {
+                terminal.innerHTML += commands[commandIndex][charIndex++];
+                setTimeout(typeCommand, 50); // Vitesse de frappe
+            } else {
+                terminal.innerHTML += '\n'; // Nouvelle ligne après chaque commande
+                charIndex = 0;
+                commandIndex++;
+                if (commandIndex === commands.length) {
+                    addPrompt();
+                } else {
+                    setTimeout(typeCommand, 500); // Délai entre les commandes
+                }
+            }
+        }
+    }
+
+    function addPrompt() {
+        terminal.innerHTML += '<span class="typing"></span>';
+        document.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                document.querySelector('.typing').remove(); // Supprime le curseur
+                displayDescription();
+            }
+        });
+    }
+
+    function displayDescription() {
+        const description = "\nVous êtes sur la page de [Votre Nom].\n\nVoici une courte description de moi. J'aime coder, explorer de nouvelles technologies et travailler sur des projets intéressants.";
+        terminal.innerHTML += description;
+    }
+
+    typeCommand(); // Commencer à taper les commandes
 });
