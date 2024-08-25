@@ -16,6 +16,7 @@ body {
     display: flex;
     align-items: center;
     transition: transform 0.7s ease-out, margin 0.5s ease-out;
+    transform: translateX(-50px); /* Décalage initial pour l'animation */
 }
 
 .profile-container.center {
@@ -83,18 +84,20 @@ body {
 /* Styles pour le terminal */
 .terminal-container {
     position: absolute;
-    top: 50%; /* Positionné au milieu verticalement */
+    top: 80%; /* Positionné plus bas sur la page */
     left: 50%;
-    transform: translate(-50%, -50%); /* Centrer horizontalement et verticalement */
-    width: 80%; /* Ajustez la largeur comme vous le souhaitez */
+    transform: translate(-50%, -50%); /* Centrer horizontalement et ajuster verticalement */
+    width: 90%; /* Ajustez la largeur comme vous le souhaitez */
     max-width: 800px; /* Largeur maximale */
-    height: 200px; /* Hauteur du terminal */
+    height: 300px; /* Hauteur du terminal étiré verticalement */
     background-color: #000;
     color: #fff; /* Texte blanc */
     border-radius: 15px; /* Coins arrondis */
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5); /* Ombre verte */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Ombre noire plus marquée */
     overflow: hidden;
-    padding: 10px;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 1s ease-in;
 }
 
 .terminal {
