@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
         setTimeout(function() {
             statusBox.classList.add('show');
             setTimeout(function() {
-                // Après l'animation, centrer l'ensemble
+                // Après l'animation, centrer le profil
                 profileContainer.classList.add('center');
                 // Animer l'apparition du terminal
                 terminalContainer.style.opacity = 1;
