@@ -1,33 +1,26 @@
-let player;
-let profilePic = document.getElementById('profilePic');
+document.addEventListener("DOMContentLoaded", function() {
+    const profilePic = document.getElementById('profilePic');
+    const statusBox = document.getElementById('statusBox');
+    const statusDot = document.getElementById('statusDot');
+    const statusLabel = document.getElementById('statusLabel');
 
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-        height: '0',
-        width: '0',
-        videoId: 'wBHlLBRVUN0',
-        events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-        }
-    });
-}
+    // Simuler la récupération du statut Discord (en ligne/hors ligne)
+    const isOnline = true; // Remplacez ceci par une vraie vérification du statut
 
-function onPlayerReady(event) {
-    event.target.playVideo();
-}
-
-function onPlayerStateChange(event) {
-    if (event.data == YT.PlayerState.PLAYING) {
-        animateProfilePic();
+    // Définir la couleur et le texte du statut
+    if (isOnline) {
+        statusDot.style.backgroundColor = "green";
+        statusLabel.textContent = "En ligne";
+    } else {
+        statusDot.style.backgroundColor = "red";
+        statusLabel.textContent = "Hors ligne";
     }
-}
 
-function animateProfilePic() {
-    setInterval(function() {
-        if (player.getPlayerState() === YT.PlayerState.PLAYING) {
-            profilePic.classList.add('bounce');
-            setTimeout(() => profilePic.classList.remove('bounce'), 300);
-        }
-    }, 600); // Ajuster cette valeur pour correspondre au rythme
-}
+    // Animer le déplacement et l'affichage du statut
+    setTimeout(function() {
+        profilePic.classList.add('move-left');
+        setTimeout(function() {
+            statusBox.classList.add('show');
+        }, 700); // Délai pour la sortie du statut après le déplacement de l'image
+    }, 700); // Délai initial pour commencer l'animation
+});
