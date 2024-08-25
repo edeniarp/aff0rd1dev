@@ -1,3 +1,4 @@
+/* Styles existants pour la photo de profil et le statut */
 body {
     margin: 0;
     padding: 0;
@@ -15,8 +16,6 @@ body {
     display: flex;
     align-items: center;
     transition: transform 0.7s ease-out, margin 0.5s ease-out;
-    /* Initialement déplacé vers la gauche */
-    transform: translateX(-50px); /* Décalage initial pour l'animation */
 }
 
 .profile-container.center {
@@ -77,8 +76,11 @@ body {
     transform: translateX(20px);
 }
 
-/* Styles de base déjà fournis ci-dessus */
+.move-left {
+    transform: translateX(-50px);
+}
 
+/* Styles pour le terminal */
 .terminal-container {
     position: absolute;
     bottom: 0;
