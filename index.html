@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page avec Terminal</title>
+    <title>Profil avec Statut Discord</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Section de la photo de profil et du statut -->
-    <div class="profile-container">
+    <div class="status-container">
         <div class="status-box" id="statusBox">
             <span id="statusDot"></span>
-            <span id="statusLabel"></span>
+            <span id="statusLabel">En ligne</span>
         </div>
         <div class="profile-pic-container">
-            <img src="https://cdn.discordapp.com/attachments/1273663458864529560/1277363375843709099/20240825_220731.jpg?ex=66cce4d9&is=66cb9359&hm=8b56d8592865f6a46b4700eef94343c74021c3e238fc47e1090fb586216186f0&" class="profile-pic" alt="Profile Picture">
+            <img src="https://cdn.discordapp.com/attachments/1273663458864529560/1277363375843709099/20240825_220731.jpg?ex=66cce4d9&is=66cb9359&hm=8b56d8592865f6a46b4700eef94343c74021c3e238fc47e1090fb586216186f0" 
+                 alt="Photo de Profil" 
+                 class="profile-pic" 
+                 id="profilePic">
         </div>
     </div>
 
     <!-- Terminal -->
-    <div class="terminal-container">
+    <div class="terminal-container" id="terminalContainer">
         <pre class="terminal" id="terminal"></pre>
     </div>
 
