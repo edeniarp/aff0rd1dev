@@ -23,10 +23,6 @@ document.addEventListener("DOMContentLoaded", function() {
         profileContainer.classList.add('move-left');
         setTimeout(function() {
             statusBox.classList.add('show');
-            setTimeout(function() {
-                // Après l'animation, centrer l'ensemble
-                profileContainer.classList.add('center');
-            }, 500); // Délai pour l'animation du centre
         }, 700); // Délai pour la sortie du statut après le déplacement de l'image
     }, 700); // Délai initial pour commencer l'animation
 });
