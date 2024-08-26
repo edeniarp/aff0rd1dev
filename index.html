@@ -12,7 +12,7 @@
             <span id="statusDot"></span>
             <span id="statusLabel">En ligne</span>
         </div>
-        <div class="profile-pic-container profile-container">
+        <div class="profile-pic-container">
             <img src="https://cdn.discordapp.com/attachments/1273663458864529560/1277363375843709099/20240825_220731.jpg?ex=66cce4d9&is=66cb9359&hm=8b56d8592865f6a46b4700eef94343c74021c3e238fc47e1090fb586216186f0" 
                  alt="Photo de Profil" 
                  class="profile-pic" 
@@ -20,9 +20,21 @@
         </div>
     </div>
 
-    <!-- Terminal -->
     <div class="terminal-container" id="terminalContainer">
-        <div id="terminal"></div>
+        <div class="terminal">
+            <div class="terminal-header">
+                <span class="header-button close"></span>
+                <span class="header-button minimize"></span>
+                <span class="header-button maximize"></span>
+            </div>
+            <div class="terminal-body">
+                <div class="output" id="terminalOutput"></div>
+                <div class="input">
+                    <span class="prompt">Type to enter:</span>
+                    <input type="text" id="terminalInput" autofocus>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
