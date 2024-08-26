@@ -4,15 +4,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const statusDot = document.getElementById('statusDot');
     const statusLabel = document.getElementById('statusLabel');
     const terminalContainer = document.getElementById('terminalContainer');
-    const terminal = document.getElementById('terminal');
+    const terminalInput = document.getElementById('terminalInput');
+    const terminalOutput = document.getElementById('terminalOutput');
 
-    // Simuler la récupération du statut Discord (en ligne/hors ligne)
     const isOnline = true; // Remplacez ceci par une vraie vérification du statut
 
-    // Définir la couleur et le texte du statut
     if (isOnline) {
-        statusDot.style.backgroundColor = "#7cff00"; // Vert clair
-        statusDot.style.boxShadow = "0 0 15px #7cff00"; // Lueur verte claire
+        statusDot.style.backgroundColor = "#7cff00";
+        statusDot.style.boxShadow = "0 0 15px #7cff00";
         statusLabel.textContent = "En ligne";
     } else {
         statusDot.style.backgroundColor = "red";
@@ -20,67 +19,34 @@ document.addEventListener("DOMContentLoaded", function() {
         statusLabel.textContent = "Hors ligne";
     }
 
-    // Animer le déplacement et l'affichage du statut
     setTimeout(function() {
         profileContainer.classList.add('move-left');
         setTimeout(function() {
             statusBox.classList.add('show');
             setTimeout(function() {
-                // Après l'animation, centrer le profil
                 profileContainer.classList.add('center');
-                // Animer l'apparition du terminal
-                terminalContainer.style.opacity = 1;
-                startTerminalAnimation();
-            }, 500); // Délai pour l'animation du centre
-        }, 700); // Délai pour la sortie du statut après le déplacement de l'image
-    }, 700); // Délai initial pour commencer l'animation
+                setTimeout(function() {
+                    terminalContainer.classList.add('show');
+                }, 500);
+            }, 500);
+        }, 700);
+    }, 700);
 
-    function startTerminalAnimation() {
-        const commands = [
-            "C:\\> python r!ft.py",
-            "C:\\> Tapez Enter to enter >"
-        ];
-
-        let commandIndex = 0;
-        let charIndex = 0;
-
-        function typeCommand() {
-            if (commandIndex < commands.length) {
-                if (charIndex < commands[commandIndex].length) {
-                    terminal.innerHTML += commands[commandIndex][charIndex++];
-                    setTimeout(typeCommand, 50); // Vitesse de frappe
-                } else {
-                    terminal.innerHTML += '\n'; // Nouvelle ligne après chaque commande
-                    charIndex = 0;
-                    commandIndex++;
-                    if (commandIndex === commands.length) {
-                        addPrompt();
-                    } else {
-                        setTimeout(typeCommand, 500); // Délai entre les commandes
-                    }
-                }
-            }
+    terminalInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            const inputText = terminalInput.value.trim();
+            terminalOutput.textContent = ""; // Efface le texte précédent
+            terminalInput.value = ""; // Réinitialise le champ de saisie
+            
+            // Affiche une description après avoir tapé "Enter"
+            setTimeout(() => {
+                terminalOutput.innerHTML = `
+                    <p>Je suis un développeur passionné par la création de solutions innovantes.</p>
+                    <p>Expert en JavaScript, CSS, et en développement web, j'aime relever des défis complexes.</p>
+                    <p>Mon objectif est de continuer à apprendre et à améliorer mes compétences chaque jour.</p>
+                `;
+            }, 500);
         }
-
-        function addPrompt() {
-            terminal.innerHTML += '<span class="typing"></span>';
-            document.addEventListener('keypress', function(event) {
-                if (event.key === 'Enter') {
-                    document.querySelector('.typing').remove(); // Supprime le curseur
-                    terminal.innerHTML = ''; // Efface le contenu du terminal
-                    displayDescription();
-                }
-            });
-        }
-
-        function displayDescription() {
-            const description = `
-Vous êtes sur la page de [Votre Nom].
-
-Voici une courte description de moi. J'aime coder, explorer de nouvelles technologies, et travailler sur des projets intéressants.`;
-            terminal.innerHTML = description; // Affiche la description
-        }
-
-        typeCommand(); // Commencer à taper les commandes
-    }
+    });
 });
